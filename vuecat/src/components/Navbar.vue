@@ -8,9 +8,9 @@
         <span class="pink--text font-weight-bold">Cat</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="pink white--text" text>
+      <v-btn to="/" class="pink white--text" text>
           <v-icon left>apps</v-icon>
-        <span>Log in</span>
+        <span>Home</span>
              <!--navbar top end-->
       </v-btn>
     </v-app-bar>
@@ -40,7 +40,8 @@ export default {
      links: [
         { icon: 'mood', text: 'Cats', route: '/' },
         { icon: 'group_work', text: 'Breeds', route: '/Breeds' },
-        { icon: 'category', text: 'Categories', route: '/Categories' }
+        { icon: 'category', text: 'Categories', route: '/Categories' },
+        { icon: 'add', text: 'Add cat', route: '/AddCat' }
       ]
     }
   }

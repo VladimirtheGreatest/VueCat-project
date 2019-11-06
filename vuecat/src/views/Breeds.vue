@@ -22,6 +22,7 @@
                         return-object
                         clearable
                         rounded
+                        dense
                         placeholder="Select your breed"
                         attach></v-select>
                  </v-flex>
@@ -48,22 +49,22 @@
                     <v-card-title primary-title>
 
                     <div class="text-xs-center">
-                        <v-chip color="pink" text-color="white">
-                                <v-avatar>
+                        <v-chip class="mr-2" color="pink" text-color="white">
+                                <v-avatar class="pr-2">
                                   <img :src="country_flag_url" :alt="selected_breed.country_code">
                                 </v-avatar>
                         {{selected_breed.origin}}</v-chip>
-                        <v-chip v-if="selected_breed.experimental==1">Experimental</v-chip>
-                        <v-chip v-if="selected_breed.rex==1">Rex</v-chip>
-                        <v-chip v-if="selected_breed.natural==1">Natural</v-chip>
-                        <v-chip v-if="selected_breed.rare==1">Rare</v-chip>
-                        <v-chip v-if="selected_breed.hairless==1">Hairless</v-chip>
-                        <v-chip v-if="selected_breed.suppressed_tail==1">Suppressed Tail</v-chip>
-                        <v-chip v-if="selected_breed.short_legs==1">Short Legs</v-chip>
-                        <v-chip v-if="selected_breed.hypoallergenic==1">Hypoallergenic</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.experimental==1">Experimental</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.rex==1">Rex</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.natural==1">Natural</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.rare==1">Rare</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.hairless==1">Hairless</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.suppressed_tail==1">Suppressed Tail</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.short_legs==1">Short Legs</v-chip>
+                        <v-chip class="mr-2" v-if="selected_breed.hypoallergenic==1">Hypoallergenic</v-chip>
                     </div>
                       <div>
-                        <h2 class="font-weight-bold mb-3">{{selected_breed.name}}</h2>
+                        <h2 class="font-weight-bold my-5">{{selected_breed.name}}</h2>
                         <div id="text">{{selected_breed.description}}</div>
                         <div>---</div>
                         <div class="font-weight-bold"><i>{{selected_breed.temperament}}</i></div>
@@ -72,7 +73,7 @@
 
 
                     <v-card-actions>
-                      <v-btn :href="selected_breed.wikipedia_url" target="_blank" flat color="pink white--text">Wikipedia</v-btn>
+                      <v-btn :href="selected_breed.wikipedia_url" target="_blank" flat color="pink white--text px-5 py-5">Wikipedia</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>

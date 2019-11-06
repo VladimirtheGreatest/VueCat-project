@@ -1,7 +1,7 @@
 <template>
-  <div class="Breeds">
+  <div class="Categories">
       <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
-       <container fluid v-else>
+       <v-container fluid v-else>
              <v-row class="my-12 py-12" >
          <v-col class="mb-5" sm="12" md="12" xs="12">
          <div :class="{'mx-2 mt-5': $vuetify.breakpoint.smAndDown, 'mt-10': $vuetify.breakpoint.mdAndUp}"> <!--specifying breakpoints-->
@@ -10,11 +10,10 @@
             </div>
               </v-col>
               </v-row>
-            <v-card>
         <v-container>
             <v-layout row wrap align-center>
                 <!-- Order selection - Randpm, Descending, or Ascending -->
-                <v-flex xs12 md6 class="mx-auto my-12 py-12" >
+                <v-flex xs12 md6 class="mx-auto py-12" >
                     <v-select :items="categories"
                             item-text="name"
                             v-model="selected_category"
@@ -28,19 +27,17 @@
             </v-layout>
             <v-layout>
                 <!-- for loop through the results from the API -->
-                <v-row class="mx-5">
-                <v-col sm="12" md="6" xs="12" v-for="n in images" :key="n.id">
-                    <v-card >
+                <v-row :class="{'mx-1': $vuetify.breakpoint.smAndDown, 'mx-3': $vuetify.breakpoint.mdAndUp}">
+                <v-flex xs12 md6 sm12 v-for="n in images" :key="n.id">
                         <v-img 
+                            :class="{'my-3': $vuetify.breakpoint.smAndDown, 'mr-3': $vuetify.breakpoint.mdAndUp}"
                             id="card"
                             :src="n.url"
                             max-width="1000" max-height="600"
-                            lazy-src="https://picsum.photos/10/6"
                             aspect-ratio="1">
                         </v-img>
-                    </v-card>
-                </v-col>
-                  <h1 class="text-left my-12 py-12 mx-auto"><span id="huge" class="font-weight-bold">Choose your category</span><br><span class="font-weight-light">Think about all those<span class="font-weight-bold pink--text"> beautiful moments</span> you could <span class="font-weight-bold">spend together</span></span></h1>
+                </v-flex >
+                <h1 class="text-left my-12 py-12 mx-auto"><span id="huge" class="font-weight-bold">Choose your category</span><br><span class="font-weight-light">Think about all those<span class="font-weight-bold pink--text"> beautiful moments</span> you could <span class="font-weight-bold">spend together</span></span></h1>         
                 </v-row>
             </v-layout>
             <br>
@@ -55,16 +52,21 @@
                         v-show="order!='Rand'" 
                         v-model="page"
                         :length="getNumPages"
+                        circle
+                        total-visible="8"
+                        color="pink"
                         ></v-pagination>
                         </v-col>
                     </v-row>
                 </v-layout>
                 <v-layout>
                     <v-row>
-                        <v-col sm="6" md="4" xs="12" class="mx-auto">
+                        <v-col sm="6" md="4" xs="12" class="mx-auto py-12">
                         <v-select :items="[2,4,8]"
                             v-model="limit"
                             label="Limit"
+                            outlined
+                            dense
                             attach></v-select>
                              </v-col>
                     </v-row>
@@ -80,8 +82,7 @@
                      </v-row>
                 
         </v-container>
-        </v-card>
-        </container>
+        </v-container>
    </div>
 </template>
 
@@ -181,8 +182,8 @@ export default {
 
   <style scoped>
   #card{
-    -webkit-box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.57); 
-    box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.57);
+    -webkit-box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.27); 
+    box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.27);
   }
   #huge{
       font-size: 52px;
