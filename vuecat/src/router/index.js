@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Breeds from '../views/Breeds.vue'
+import Categories from '../views/Categories.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: '/Breeds',
     name: 'breeds',
     component: Breeds
+  },
+  {
+    path: '/Categories',
+    name: 'categories',
+    component: Categories
   }
 ]
 

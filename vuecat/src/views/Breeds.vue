@@ -3,14 +3,14 @@
       <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
        <container fluid v-else>
 
-             <div class="mt-10" id="main">
+             <div id="main" class="py-12">
             <v-layout align-center justify-center>
             <v-flex>
-               <div class="mt-10">
+               <div class="my-12">
                  <h1 class="white--text font-weight-bold">Finding it hard to find the right cat?<br>Just to make things simpler.</h1>
                  </div>
 
-                 <div class="flex-center mt-10 mb-10">
+                 <div class="flex-center my-12">
                 <v-layout >
                 <v-flex >
                    <v-select :items="breeds"

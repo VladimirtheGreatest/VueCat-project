@@ -1,10 +1,14 @@
 <template>
   <div class="home">
        <v-container fluid >
-         <div class="mt-10 ml-10 mb-5">
+         <v-row >
+         <v-col class="mb-5" sm="12" md="12" xs="12">
+         <div :class="{'mx-1 mt-5': $vuetify.breakpoint.smAndDown, 'ml-10 mt-10': $vuetify.breakpoint.mdAndUp}"> <!--specifying breakpoints-->
          <h3 class="pink--text text-left font-weight-light">Trying to decide <span class="font-weight-bold">what type of cat is right for you</span> and your family?</h3>
          <h1 class="text-left"><span class="font-weight-bold">Browse through our list of cat breeds using our Vue</span><b class="pink--text">Cat</b><br><span class="font-weight-light"> tool, and find the best cat for you.</span></h1>
             </div>
+              </v-col>
+              </v-row>
               <v-row >
                 <v-col class="mb-5" sm="12" md="12" xs="12">
                   <v-layout class="mb-5" align-center justify-center>

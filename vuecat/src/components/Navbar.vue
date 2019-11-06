@@ -40,7 +40,7 @@ export default {
      links: [
         { icon: 'mood', text: 'Cats', route: '/' },
         { icon: 'group_work', text: 'Breeds', route: '/Breeds' },
-        { icon: 'category', text: 'Categories', route: '/categories' }
+        { icon: 'category', text: 'Categories', route: '/Categories' }
       ]
     }
   }

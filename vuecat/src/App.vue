@@ -1,7 +1,7 @@
 <template>
   <v-app>
        <Navbar/>
-    <v-content  class="text-center">
+    <v-content  class="text-center white">
         <router-view></router-view>
     </v-content>
   </v-app>
