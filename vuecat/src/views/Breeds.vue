@@ -1,13 +1,13 @@
 <template>
   <div class="Breeds">
       <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
-       <container fluid v-else>
+       <v-container fluid v-else>
 
              <div id="main" class="py-12">
             <v-layout align-center justify-center>
             <v-flex>
                <div class="my-12">
-                 <h1 class="white--text font-weight-bold">Finding it hard to find the right cat?<br>Just to make things simpler.</h1>
+                 <h1 class="black--text font-weight-bold">Finding it hard to find the right cat?<br><span class="font-weight-light">Just to make things simpler.</span></h1>
                  </div>
 
                  <div class="flex-center my-12">
@@ -37,7 +37,7 @@
 
             <v-layout align-center justify-center>
                 <v-flex  xs12 md6 sm12 >
-                  <v-card outlined>
+                  <v-card outlined id="breed">
 
   <v-carousel hide-delimiters>
       <v-carousel-item
@@ -67,13 +67,13 @@
                         <h2 class="font-weight-bold my-5">{{selected_breed.name}}</h2>
                         <div id="text">{{selected_breed.description}}</div>
                         <div>---</div>
-                        <div class="font-weight-bold"><i>{{selected_breed.temperament}}</i></div>
+                        <div class="font-weight-bold pink--text"><i>{{selected_breed.temperament}}</i></div>
                       </div>
                     </v-card-title>
 
 
                     <v-card-actions>
-                      <v-btn :href="selected_breed.wikipedia_url" target="_blank" flat color="pink white--text px-5 py-5">Wikipedia</v-btn>
+                      <v-btn :href="selected_breed.wikipedia_url" target="_blank" color="pink white--text px-5 py-5">Wikipedia</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -81,7 +81,7 @@
                </div>
 
 
-  </container>
+  </v-container>
    </div>
 </template>
 
@@ -157,13 +157,14 @@ export default {
   h1{
     font-size: 42px;
   }
-  #main{
-    background-color:	#00BCFF;
-  }
   #text{
-    color: #92A292;
     text-align: left;
     padding: 3%;
+    font-weight:lighter;
+  }
+  #breed{
+    -webkit-box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.57); 
+    box-shadow: 5px 5px 44px 39px rgba(255,105,180,0.57);
   }
   
   </style>

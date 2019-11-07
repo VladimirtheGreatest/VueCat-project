@@ -30,7 +30,7 @@
                 <v-row :class="{'mx-1': $vuetify.breakpoint.smAndDown, 'mx-3': $vuetify.breakpoint.mdAndUp}">
                 <v-flex xs12 md6 sm12 v-for="n in images" :key="n.id">
                         <v-img 
-                            :class="{'my-3': $vuetify.breakpoint.smAndDown, 'mr-3': $vuetify.breakpoint.mdAndUp}"
+                            :class="{'my-3': $vuetify.breakpoint.smAndDown, 'mr-3 my-1': $vuetify.breakpoint.mdAndUp}"
                             id="card"
                             :src="n.url"
                             max-width="1000" max-height="600"
