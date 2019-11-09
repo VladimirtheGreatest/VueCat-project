@@ -1,6 +1,11 @@
 # VueCat-project
 
-<img src="https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.webp?cid=790b76110a6b2d1569e7d7d1d38324e1f115ef4814d86b1d&rid=giphy.webp" alt="gif">
+https://vuecat.netlify.com/
 
 JavaScript based web application that exposes the functionality of 'The Cat API' . Using Vue.js and Vuetify for the front-end.
+
+
+I want to dedicate this web app to my good fella Simon 
+<img src="https://media.giphy.com/media/J47SiuFF2av3qW51QM/giphy.gif" alt="gif">
+
 
