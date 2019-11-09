@@ -6,6 +6,7 @@ JavaScript based web application that exposes the functionality of 'The Cat API'
 
 
 I want to dedicate this web app to my good fella Simon 
-<img src="https://media.giphy.com/media/J47SiuFF2av3qW51QM/giphy.gif" alt="gif">
+
+<img src="https://gph.is/g/Zx2WkJ7" alt="gif">
 
 
