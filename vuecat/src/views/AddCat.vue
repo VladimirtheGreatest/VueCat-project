@@ -1,52 +1,42 @@
 <template>
-  <div class="AddCat">
-    <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
-       <v-container fluid v-else>
+<div class="AddCat">
+  <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
+  <v-container fluid v-else>
 
     <!-- Background image + headings -->
-  <div id="largeImage">
-    <v-row >
-    <v-col sm="12" md="12" xs="12" class="description-box pr-10">
-      <h1>Do you have any pictures of your loved ones <br> you would like to share with us?</h1>
-      <h2>Feel free to upload your images here.</h2>
+    <div id="largeImage">
+      <v-row>
+        <v-col sm="12" md="12" xs="12" class="description-box pr-10">
+          <h1>Do you have any pictures of your loved ones <br> you would like to share with us?</h1>
+          <h2>Feel free to upload your images here.</h2>
 
-        <div id="imagecolumn">
-                              <div class="flex-center">
-                                <v-layout>
-                                <v-flex>
-                                <v-flex>
-                    <v-img class="my-3" :src="image_url" max-width="400px" height="300px" v-if="image_url" contain></v-img>
-                                     <input
-                                    type="file"
-                                    style="display: none"
-                                    ref="image"
-                                    accept="image/*"
-                                    @change="onFilePicked"
-                                      >
-                            </v-flex>
-                               <v-btn class="mr-2" v-show="!uploading" color="pink" dark x-large @click="pickFile" >
-                                 Choose New Image &nbsp; <v-icon>archive</v-icon>
-                                </v-btn>
-                                 <v-btn v-show="image_file && !uploading" color="blue" dark x-large @click="uploadFile" >
-                               Upload &nbsp; <v-icon>archive</v-icon>
-                                  </v-btn>
-                                 <div v-show="uploading">Uploading</div>
-                                      <div class="mt-5">
-                                    <v-alert v-show="error_message" :value="true" type="error">
-                                  {{error_message}}
-                                     </v-alert>
-                                    </div>     
-                                </v-flex>
-                            </v-layout>
-                                </div>
-                         
-        </div>
-    </v-col>
-      </v-row >
-  </div>
+          <div id="imagecolumn">
+            <div class="flex-center">
+              <v-layout>
+                  <v-flex>
+                    <v-img class="my-3" :src="image_url" max-width="400px" max-height="300px" v-if="image_url" contain></v-img>
+                    <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked">
+                  <v-btn class="mr-2" v-show="!uploading" color="pink" dark x-large @click="pickFile">
+                    Choose New Image &nbsp; <v-icon>archive</v-icon>
+                  </v-btn>
+                  <v-btn v-show="image_file && !uploading" color="blue" dark x-large @click="uploadFile">
+                    Upload &nbsp; <v-icon>archive</v-icon>
+                  </v-btn>
+                  <div v-show="uploading">Uploading</div>
+                  <v-alert class="mt-2" v-show="error_message" :value="true" type="error">
+                    {{error_message}}
+                  </v-alert>
+                </v-flex>
+              </v-layout>
+            </div>
+
+          </div>
+        </v-col>
+      </v-row>
+    </div>
     <!-- end of the Landing page with the background image-->
-        </v-container>
-   </div>
+  </v-container>
+</div>
 </template>
 
 <script>
@@ -72,7 +62,7 @@ export default {
                 this.error_message = null
                 this.$refs.image.click ()
             },
-            
+
             onFilePicked (e) {
                 const files = e.target.files
                 if(files[0] !== undefined) {
@@ -92,7 +82,7 @@ export default {
                     this.image_url = ''
                 }
             },
-            async uploadFile() {
+            uploadFile() {
                 Swal.fire({
                 title: 'Do you really want to upload this image?',
                 text: "Keep in mind that it has to be the image of your cat, nobody wants to see your selfie!",
@@ -120,7 +110,6 @@ export default {
                     }
                     }).then((result) => {
                     if (
-                        /* Read more about handling dismissals below */
                         result.dismiss === Swal.DismissReason.timer
                     ) {
                         console.log('I was closed by the timer')
@@ -134,8 +123,8 @@ export default {
                 let formData = new FormData();
                 formData.append('file',this.image_file);
                 try{
-                    axios.defaults.headers.common['x-api-key'] = "91a07ee8-70f3-4a3d-9296-0c6ca54428ef" // 
-                    let response = await axios.post('https://api.thecatapi.com/v1/images/upload', formData, {headers: {'Content-Type':'multipart/form-data' }}) 
+                    axios.defaults.headers.common['x-api-key'] = "91a07ee8-70f3-4a3d-9296-0c6ca54428ef" //
+                    let response = await axios.post('https://api.thecatapi.com/v1/images/upload', formData, {headers: {'Content-Type':'multipart/form-data' }})
                     console.log(response.data)
                     this.uploaded_image = response.data
                     this.uploading = false;
@@ -158,11 +147,9 @@ export default {
   </script>
 
   <style scoped>
-/*landing page description + BG image*/
-
 #largeImage{
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background: url('../images/cat.jpg') no-repeat left center/cover;
   background-color: white
 }
@@ -202,7 +189,7 @@ export default {
   flex-direction: column;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     #largeImage{
   width: 100%;
   height: 100%;
