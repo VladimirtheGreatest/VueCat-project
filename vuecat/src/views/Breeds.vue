@@ -2,8 +2,9 @@
 <div class="Breeds">
   <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
   <v-container fluid v-else>
-
-    <div id="main" class="py-12">
+           <!--Breeds list page-->
+    <div class="py-12">
+       <!--Headings + list of breeds-->
       <v-layout align-center justify-center>
         <v-flex>
           <div class="my-12">
@@ -22,8 +23,9 @@
         </v-flex>
 
       </v-layout>
+        <!--Headings + list of breeds end-->
 
-
+        <!--Image carousel + information section-->
       <v-layout align-center justify-center>
         <v-flex xs12 md6 sm12>
           <v-card outlined id="breed">
@@ -32,7 +34,7 @@
               <v-carousel-item v-for="(item,i) in images" :key="i" :src="item.url"></v-carousel-item>
             </v-carousel>
             <v-card-title primary-title>
-
+                    <!--Text area-->
               <div class="text-xs-center">
                 <v-chip class="mr-2" color="pink" text-color="white">
                   <v-avatar class="pr-2">
@@ -49,6 +51,7 @@
                 <v-chip class="mr-2" v-if="selected_breed.short_legs==1">Short Legs</v-chip>
                 <v-chip class="mr-2" v-if="selected_breed.hypoallergenic==1">Hypoallergenic</v-chip>
               </div>
+                
               <div>
                 <h2 class="font-weight-bold my-5">{{selected_breed.name}}</h2>
                 <div id="text">{{selected_breed.description}}</div>
@@ -61,11 +64,13 @@
             <v-card-actions>
               <v-btn :href="selected_breed.wikipedia_url" target="_blank" color="pink white--text px-5 py-5">Wikipedia</v-btn>
             </v-card-actions>
+              <!--Text area end-->
           </v-card>
         </v-flex>
       </v-layout>
+          <!--Image carousel + information section end-->
     </div>
-
+        <!--Breeds list page end-->
 
   </v-container>
 </div>
@@ -78,10 +83,10 @@ export default {
    data () {
         return {
            loading : true,
-          country_flag_url:"",
-          images: [],
-          breeds:[],
-          selected_breed: {},
+          country_flag_url:"",   //country flag comes from the cdn, check watcher
+          images: [],             //array of images for the carousel
+          breeds:[],              //list of breeds, will be stored in the dropdown
+          selected_breed: {},     //chosen breed from the dropdownmenu
           current_image: {}
           }
         },
@@ -97,6 +102,7 @@ export default {
             }
         },
         methods:{
+          //getting breeds from the API
             async getBreeds()
             {
                 try{
@@ -110,6 +116,7 @@ export default {
                       this.loading = false
                 }
             },
+            //getting images from the API
             async getImages()
             {
                 try{
@@ -138,7 +145,7 @@ export default {
 
   <style scoped>
   #bold{
-    font-weight: 900
+    font-weight: 900;
   }
   h1{
     font-size: 42px;

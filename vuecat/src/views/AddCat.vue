@@ -147,6 +147,7 @@ export default {
   </script>
 
   <style scoped>
+  /*Main large image with the headings*/
 #largeImage{
   width: 100%;
   height: 110vh;
@@ -188,7 +189,9 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
+/*Main large image with the headings end*/
 
+/*Media queries*/
 @media (max-width: 900px) {
     #largeImage{
   width: 100%;

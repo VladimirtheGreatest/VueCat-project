@@ -1,28 +1,32 @@
 <template>
 <div class="Categories">
   <v-progress-circular v-if="loading" :size="100" indeterminate color="pink"></v-progress-circular>
+    <!--Categories page-->
   <v-container fluid v-else>
+      <!--Heading section-->
     <v-row class="my-12 py-12">
       <v-col class="mb-5" sm="12" md="12" xs="12">
-        <div :class="{'mx-2 mt-5': $vuetify.breakpoint.smAndDown, 'mt-10': $vuetify.breakpoint.mdAndUp}">
-          <!--specifying breakpoints-->
+        <div :class="{'mx-2 mt-5': $vuetify.breakpoint.smAndDown, 'mt-10': $vuetify.breakpoint.mdAndUp}">   <!--specifying breakpoints-->
           <h3 class="pink--text text-center font-weight-light">In ancient times <span class="font-weight-bold">cats were worshipped as gods</span></h3>
           <h1 class="text-center"><span class="font-weight-bold">They have not forgotten this.</span><br><span class="font-weight-light"> Always remember, time spent with cats is never wasted.</span></h1>
         </div>
       </v-col>
     </v-row>
+      <!--Heading section end-->
     <v-container>
+            <!-- Select category -->
       <v-layout row wrap align-center>
-        <!-- Order selection - Randpm, Descending, or Ascending -->
         <v-flex xs12 md6 class="mx-auto py-12">
           <v-select :items="categories" item-text="name" v-model="selected_category" label="Categories" return-object outlined dense attach>
           </v-select>
         </v-flex>
       </v-layout>
+          <!-- Select category end -->
+
+            <!-- Images section-->
       <v-layout>
-        <!-- for loop through the results from the API -->
         <v-row :class="{'mx-1': $vuetify.breakpoint.smAndDown, 'mx-3': $vuetify.breakpoint.mdAndUp}">
-          <v-flex xs12 md6 sm12 v-for="n in images" :key="n.id">
+          <v-flex xs12 md6 sm12 v-for="n in images" :key="n.id">      <!-- for loop through the results from the API -->
             <v-img :class="{'my-3': $vuetify.breakpoint.smAndDown, 'mr-3 my-1': $vuetify.breakpoint.mdAndUp}" id="card" :src="n.url" max-width="1000" max-height="600" aspect-ratio="1">
             </v-img>
           </v-flex>
@@ -30,6 +34,7 @@
               could <span class="font-weight-bold">spend together</span></span></h1>
         </v-row>
       </v-layout>
+          <!-- Images section end-->
       <br>
       <!-- Pagination control -->
       <v-layout>
@@ -44,6 +49,8 @@
           </v-col>
         </v-row>
       </v-layout>
+         <!-- Pagination control end -->
+          <!-- Limit for images that will be displayed -->
       <v-layout>
         <v-row>
           <v-col sm="6" md="4" xs="12" class="mx-auto py-12">
@@ -51,6 +58,7 @@
           </v-col>
         </v-row>
       </v-layout>
+       <!-- Limit for images that will be displayed end -->
 
       <!-- Next btn only shown when Rand is select as it can't be paginated -->
       <v-row>
@@ -63,6 +71,7 @@
 
     </v-container>
   </v-container>
+      <!--Categories page end-->
 </div>
 </template>
 
@@ -73,12 +82,12 @@ export default {
          data () {
     return {
             loading : true,
-            categories: [],
-            selected_category:{},
-            images: [],
-            order:'Desc',
-            page: 1,
-            limit: 2,
+            categories: [],  //categories list that will be available in the dropdown menu
+            selected_category:{}, //selected category
+            images: [],     //images for the selected category
+            order:'Desc',   //Choose Rand for the random order of images, Desc for descending value or Asc for ascending value
+            page: 1,    //page number
+            limit: 2,  //how many images do you want to see
             pagination_count: 0, //default until we get a result with the 'Pagination-Count' header in the response
     }
   },
@@ -113,11 +122,13 @@ export default {
             }
         },
         methods:{
+           //next button, only revealed when chosen order:Rand in the state
             async nextBtn()
             {
                 this.page++;
                 await this.getImages();
             },
+            //getting categories from the API request
             async getCategories()
             {
                 try{
@@ -134,6 +145,7 @@ export default {
                       this.loading = false
                 }
             },
+                 //getting images from the API request
             async getImages()
             {
                 try{

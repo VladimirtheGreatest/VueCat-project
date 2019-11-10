@@ -14,13 +14,13 @@ export default {
   name: 'App',
   data () {
     return {
-  api: '91a07ee8-70f3-4a3d-9296-0c6ca54428ef'
     }
   }
 };
 </script>
 
 <style>
+/*Global*/
 *{
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
